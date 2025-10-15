@@ -1,34 +1,34 @@
 # FILE NAME - firewall_traffic_analyzer.py
 
-# NAME: 
-# DATE: 
-# BRIEF DESCRIPTION:  
-
-
+# NAME: Michael Carney
+# DATE: Frisday October 3, 2025
+# BRIEF DESCRIPTION: Monitor the port number as well as the size of the transfer
+#                    in order to perform network risk assessment.
 
 # 1. Make sure you fill out the comments above
 # 2. Write your code in the proper spot
 # 3. Be sure to answer the Reflection Questions and Attestation below
 # 4. The Sample Output has been included in this code for your convenience
 
-
-
 ########## ENTER YER CODE BELOW THIS LINE ##########
+print("=== Network Traffic Security Analyzer ===\n")
 
+port_number = int(input("Enter the port number (e.g., 80, 22, 443, 3389): "))
+transfer_size = int(input("Enter the data transfer size in megabytes (MB): "))
+ 
+print("\nFIREWALL LOG:")
+print(f'Port: {port_number}, Transfer Size: {transfer_size} MB')
 
-
-
-
-
-
-
-
-
+if (port_number == 22 or port_number == 3389) and transfer_size >= 100:
+    print("Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!")
+elif port_number == 80 and transfer_size > 100:
+    print("Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.")
+elif port_number == 443:
+    print("Risk Assessment: LOW RISK: Secure encrypted transfer detected.")
+else:
+    print("Risk Assessment: UNKNOWN: Unrecognized traffic pattern.")
+print("------------------------")
 ########### END YER CODE ABOVE THIS LINE ###########
-
-    
-
-
 
 ########################################
 #          SAMPLE OUTPUT
@@ -50,10 +50,10 @@ Risk Assessment: MEDIUM RISK: Large unencrypted data transfer detected.
 === Network Traffic Security Analyzer ===
 
 Enter the port number (e.g., 80, 22, 443, 3389): 22
-Enter the data transfer size in megabytes (MB): 12
+Enter the data transfer size in megabytes (MB): 1200
 
 FIREWALL LOG:
-Port: 22, Transfer Size: 12 MB
+Port: 22, Transfer Size: 1200 MB
 Risk Assessment: HIGH RISK: Potential unauthorized remote access detected!
 ------------------------
 '''
@@ -89,11 +89,5 @@ Risk Assessment: UNKNOWN: Unrecognized traffic pattern.
 '''
 
 1. Did you get tripped up using the `or` or `and` operators? If so, how?
-
-
-
-
-
-
-
+   No.
 '''
